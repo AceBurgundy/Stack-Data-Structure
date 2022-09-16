@@ -18,7 +18,7 @@ document.querySelector(".start").addEventListener("click", () => {
     }
 })
 
-if (screen.height > screen.width) {
+if (window.screen.availHeight > window.screen.availWidth) {
     document.querySelector(".error-message").classList.add("phone")
     document.querySelector(".menu-options-container").style.flexDirection = 'column'
     document.querySelector(".menu-options").style.marginBottom = '0.5em'
@@ -118,6 +118,8 @@ document.querySelector(".start").addEventListener("click", () => {
     }, 2000);
 })
 
+let game = document.getElementById("game")
+
 function insertStack() {
     document.querySelector("#hint").classList.remove("active")
     if (stack.insert(text.value) == "Stack overflow!") {
@@ -130,7 +132,7 @@ function insertStack() {
         let sound = new Audio(`sounds/green.mp3`)
         sound.play()
         if (screen.height > screen.width) {
-            window.scrollBy(100, 0);
+            game.scrollLeft = game.scrollWidth
         }
         text.value = ""
         show()
@@ -154,7 +156,7 @@ document.getElementById("remove").addEventListener("click", () => {
         makeError("Stack Underflow!")
     } else {
         if (screen.height > screen.width) {
-            window.scrollBy(100, 0);
+            game.scrollLeft = game.scrollWidth
         }
         let sound = new Audio(`sounds/yellow.mp3`)
         sound.play()
