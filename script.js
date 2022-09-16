@@ -32,15 +32,15 @@ if (screen.height > screen.width) {
         button.style.width = "90%"
     })
     document.querySelector("#hint").style.display = 'none';
-} else {
-    document.querySelector(".controls").style.flexDirection = "row"
+    document.querySelector("#bottom").style.position = "fixed";
+    document.querySelector("#bottom").style.bottom = "1%";
+    document.querySelector("#top").style.position = "fixed";
+    document.querySelector("#top").style.top = "1%";
 };
 
 const arrayParent = document.querySelector(".array-container")
 
 function show() {
-
-
     const array = document.createElement("div")
     array.className = "array"
 
@@ -71,10 +71,6 @@ function show() {
     if (array.children[stack.getCurrent()] != null) {
         array.children[stack.getCurrent()].style.backgroundColor = "orange"
     }
-
-    console.log(`current: ${stack.getCurrent()}`);
-    console.log(`current stack size: ${stack.size}`);
-    console.log(stack.getStack());
 }
 
 
@@ -89,7 +85,7 @@ document.querySelector("#inputHolder").addEventListener("click", () => {
 })
 
 document.querySelector("#source").addEventListener("click", () => {
-    window.location.href = 'https://github.com/AceBurgundy/Aceburgundy.github.io'
+    window.location.href = 'https://github.com/AceBurgundy/Stack-simulator'
 })
 
 document.querySelector("#stack").addEventListener("click", () => {
@@ -133,6 +129,9 @@ function insertStack() {
     } else {
         let sound = new Audio(`sounds/green.mp3`)
         sound.play()
+        if (screen.height > screen.width) {
+            window.scrollBy(100, 0);
+        }
         text.value = ""
         show()
     }
@@ -154,6 +153,9 @@ document.getElementById("remove").addEventListener("click", () => {
     if (stack.remove() == "Stack underflow") {
         makeError("Stack Underflow!")
     } else {
+        if (screen.height > screen.width) {
+            window.scrollBy(100, 0);
+        }
         let sound = new Audio(`sounds/yellow.mp3`)
         sound.play()
         show()

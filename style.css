@@ -30,7 +30,6 @@ body {
     display: grid;
     grid-template-rows: 15% 70% 15%;
     grid-template-areas: "top" "middle" "bottom";
-    overflow: hidden;
 }
 
 #top {
@@ -38,7 +37,7 @@ body {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    padding: 1em 1em 0 1em;
+    width: 100vw;
 }
 
 #middle {
@@ -49,6 +48,8 @@ body {
 
 #bottom {
     grid-area: bottom;
+    width: 100vw;
+    position: relative;
 }
 
 #input-getter {
@@ -173,7 +174,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 5rem;
+    gap: 4rem;
     opacity: 0;
     visibility: hidden;
     transition: 500ms;
@@ -243,7 +244,7 @@ body {
 
 .author,
 #source {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: white;
     position: absolute;
     margin: 1em;
@@ -382,6 +383,7 @@ body {
     display: flex;
     gap: 0.5em;
     align-items: center;
+    margin: 0 0 0 1em;
 }
 
 .color {
@@ -432,6 +434,7 @@ svg {
 .reset {
     background-color: #757b804e;
     padding: 1em;
+    margin: 1em 0 0 1em;
     cursor: pointer;
 }
 
@@ -439,7 +442,7 @@ svg {
 .menu-input {
     font-size: calc(16px + 1 * ((100vw) / 70));
     background-color: inherit;
-    width: 300px;
+    width: 400px;
     max-width: 60%;
     color: white;
     font-family: var(--game-font);
