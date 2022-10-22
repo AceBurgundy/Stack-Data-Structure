@@ -11,7 +11,6 @@ const startButton = document.querySelector(".start")
 const menuInput = document.querySelector(".menu-input")
 const menu = document.getElementById("menu")
 const hint = document.getElementById("hint")
-const boxNotIntersecting = document.getElementById("not-intersecting")
 
 startButton.addEventListener("click", (event) => {
 
@@ -99,33 +98,6 @@ gameInput.addEventListener("click", () => {
 
 const game = document.getElementById("game")
 
-// checks whether the boxes are hidden or not
-function checkBoxVisibility() {
-
-    let lastArray = document.querySelector(".array-container").lastElementChild
-
-    console.log(lastArray);
-
-    let observerConfig = { root: null, rootMargin: '0px', threshold: 1 };
-
-    const observer = new IntersectionObserver((boxes) => {
-
-        boxes.forEach(box => {
-            if (box.isIntersecting) {
-                boxNotIntersecting.setAttribute("value", false)
-            } else {
-                boxNotIntersecting.setAttribute("value", true)
-            }
-        })
-
-    }, observerConfig)
-
-    lastArray.childNodes.forEach(box => {
-        observer.observe(box)
-    })
-
-}
-
 // push logic
 function insertStack() {
 
@@ -141,13 +113,6 @@ function insertStack() {
 
     if (screen.height > screen.width) {
         game.scrollLeft = game.scrollWidth
-    }
-
-    checkBoxVisibility()
-
-    if (boxNotIntersecting.value == "true") {
-        makeToastNotification("Action stopped adding more elements will hide it. Pop some elements")
-        return false
     }
 
     if (stack.overflow()) {
@@ -184,7 +149,6 @@ document.getElementById("remove").addEventListener("click", (event) => {
         game.scrollLeft = game.scrollWidth
     }
 
-    checkBoxVisibility()
 
     if (stack.underflow()) {
         makeError("Stack Underflow!")
