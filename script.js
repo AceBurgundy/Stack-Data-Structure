@@ -209,6 +209,7 @@ if (window.screen.availHeight > window.screen.availWidth) {
     document.getElementById("top").style.top = "1%";
     document.querySelector(".toast-message").style.width = "80%"
     document.querySelector(".prompt-options").style.flexDirection = "column"
+    document.getElementById("with-size-stack").style.width = "100%"
 };
 
 // Menu UI Logic

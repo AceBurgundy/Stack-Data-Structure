@@ -187,7 +187,7 @@ body {
 }
 
 .title {
-    font-size: calc(16px + 6 * ((100vw) / 50));
+    font-size: calc(16px + 6 * ((100vw) / 55));
     color: white;
     text-shadow: 20px 20px rgb(176, 153, 153);
 }
@@ -209,7 +209,7 @@ body {
 }
 
 .options {
-    font-size: calc(16px + 2 * ((100vw) / 90));
+    font-size: calc(16px + 2 * ((100vw) / 120));
     color: #fff;
 }
 
@@ -227,18 +227,18 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    width: 80%;
     transition: 250ms;
     cursor: pointer;
 }
 
 #with-size-stack:hover {
-    width: fit-content;
     padding: 0.5em;
     background-color: blue;
 }
 
 .start {
-    font-size: calc(16px + 2 * ((100vw) / 70));
+    font-size: calc(16px + 2 * ((100vw) / 120));
     color: white;
     cursor: pointer;
 }
