@@ -30,7 +30,7 @@ export function makeToastNotification(message) {
     toastBox.classList.add("active")
     setTimeout(() => {
         toastBox.classList.remove("active")
-    }, 2000);
+    }, 3000);
 }
 
 export function makeError(message) {
