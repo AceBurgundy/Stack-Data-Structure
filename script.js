@@ -129,6 +129,9 @@ function insertStack() {
 
 // calls insertStack() when enter is press
 document.addEventListener("keyup", (event) => {
+
+    hint.classList.remove("active")
+
     if (!menu.classList.contains("active")) {
         if (event.key == 'Enter') {
             insertStack()
@@ -145,10 +148,11 @@ document.getElementById("insert").addEventListener("click", () => {
 // pops element of the stack
 document.getElementById("remove").addEventListener("click", (event) => {
 
+    hint.classList.remove("active")
+
     if (screen.height > screen.width) {
         game.scrollLeft = game.scrollWidth
     }
-
 
     if (stack.underflow()) {
         makeError("Stack Underflow!")
@@ -174,6 +178,9 @@ document.getElementById("no").addEventListener("click", () => {
 })
 
 document.getElementById("empty").addEventListener("click", () => {
+
+    hint.classList.remove("active")
+
     if (stack.empty()) {
         makeToastNotification("Stack is empty")
     } else {
