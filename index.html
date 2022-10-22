@@ -13,15 +13,16 @@
 </head>
 
 <body>
-    <div class="menu">
+    <input type="hidden" id="not-intersecting" value="false">
+    <div id="menu">
         <p class="title">Stack</p>
         <div class="menu-options-container">
             <div class="menu-options">
                 <div class="options" id="stack">
                     <p>Stack</p>
                 </div>
-                <div class="options" id="circular-stack">
-                    <p id="circular-stack-text">Stack w/ size</p>
+                <div class="options" id="with-size-stack">
+                    <p id="with-size-stack-text">Stack w/ size</p>
                     <input class="menu-input" type="number" placeholder="Add stack size">
                 </div>
             </div>
@@ -29,7 +30,7 @@
                 < CHOOSE</div>
             </div>
             <div class="author">By: Sabalo BSCS</div>
-            <div id="source">SOURCE</div>
+            <a href="https://github.com/AceBurgundy/Stack-simulator" target="_blank" id="source">SOURCE</a>
         </div>
         <div class="prompt">
             <p>Are you sure?</p>
