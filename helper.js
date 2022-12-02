@@ -12,9 +12,9 @@ sound.preload = "auto"
 
 export function makeError(message) {
     sound.play()
-    document.getElementById("error-message").textContent = message
-    document.getElementById("error").classList.add("active")
+    document.querySelector(".error-message").textContent = message
+    document.querySelector(".error").classList.add("active")
     setTimeout(() => {
-        document.getElementById("error").classList.remove("active")
+        document.querySelector(".error").classList.remove("active")
     }, 800);
 }
