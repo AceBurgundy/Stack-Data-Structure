@@ -12,6 +12,28 @@ const menuInput = document.querySelector(".menu-input")
 const menu = document.getElementById("menu")
 const hint = document.getElementById("hint")
 
+const context = new AudioContext()
+let audioFiles = {}
+let sound = ["green", "yellow"]
+
+for (let index = 0; index < sound.length; index++) {
+
+    fetch(`sounds/${sound[index]}.mp3`)
+        .then(data => data.arrayBuffer())
+        .then(arrayBuffer => context.decodeAudioData(arrayBuffer))
+        .then(decodedAudio => {
+            audioFiles[sound[index]] = decodedAudio
+        })
+
+}
+
+function playSound(color) {
+    const play = context.createBufferSource()
+    play.buffer = audioFiles[color]
+    play.connect(context.destination)
+    play.start(context.currentTime)
+}
+
 startButton.addEventListener("click", (event) => {
 
     const gameMode = startButton.getAttribute("data-option")
@@ -120,8 +142,7 @@ function insertStack() {
         return false
     }
 
-    const insertSound = new Audio(`sounds/green.mp3`)
-    insertSound.play()
+    playSound("green")
     stack.insert(gameInput.value)
     gameInput.value = ""
     showStack()
@@ -158,8 +179,7 @@ document.getElementById("remove").addEventListener("click", (event) => {
         makeError("Stack Underflow!")
         event.preventDefault()
     } else {
-        const removeSound = new Audio(`sounds/yellow.mp3`)
-        removeSound.play()
+        playSound("yellow")
         stack.remove()
         showStack()
     }
